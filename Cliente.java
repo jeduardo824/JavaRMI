@@ -258,7 +258,7 @@ public class Cliente{
                                     }
                                 }while(obj.login(rg1, senha1) == false);
 
-                                //obj.remove_usuario(rg1);
+                                obj.remove_usuario(rg1);
                                 System.out.println("Usuario removido com sucesso com sucesso!\n");
 
                                 if(rg1.equals("-") || rg1.equals(rgCorrente)){
