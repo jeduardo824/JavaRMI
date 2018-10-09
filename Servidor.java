@@ -242,6 +242,45 @@ public class Servidor extends UnicastRemoteObject implements InterfaceGerenciame
         return senhas;
 
 	}
+	
+	public void remove_usuario(String rg) throws RemoteException{
+
+        System.out.println("REMOVER USUARIO\n");
+
+        try {
+            File banco1 = new File("banco1.txt");
+
+            FileWriter writer =  new FileWriter(banco1);
+
+            BufferedReader banco = new BufferedReader(new FileReader("banco.txt"));
+
+            BufferedWriter buffer = new BufferedWriter(writer);
+
+            while (banco.ready()) {
+
+                String[] user = banco.readLine().split(", ");
+
+                if (user[1].equals(rg)) {
+
+                }else {
+                    buffer.append(user[0] + ", " + user[1] + ", " + user[2] + ", " + user[3] + ", " + user[4] + ", " + user[5] + ", " + user[6] + "\n");
+                }
+
+            }
+
+            System.out.println("USUARIO REMOVIDO\n");
+
+            banco.close();
+            buffer.close();
+            File banco2 = new File("banco.txt");
+            banco1.renameTo(banco2);
+
+        }catch (Exception e){
+
+        }
+
+		return;
+	}
 
 	public static void main(String args[]){
 
